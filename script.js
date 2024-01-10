@@ -115,6 +115,7 @@ function displayAlarms() {
   const alarmsList = document.getElementById('alarmsList');
   alarmsList.innerHTML = '';
   alarms.forEach((alarm, index) => {
+    
     const listItem = document.createElement('li');
     listItem.textContent = `${alarm}`;
 
