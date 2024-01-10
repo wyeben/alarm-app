@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../image/Screenshot (8).ico" type="image/x-icon">
+  <title>Wyealarm</title>
+</head>
+<body>
+  <div class="alarm-clock">
+    <h1>Wye Alarm</h1>
+    <input type="time" id="alarmTime" class="alarm-input">
+    
+    <ul id="alarmsList"></ul>
+    <div class="btn">
+      <button class="set-alarm-btn" onclick="setAlarm()">Set Alarm</button>
+      <button class="stop-alarm-btn" onclick="stopAlarm()" id="stopButton" style="display:none;">Stop Alarm</button>
+      <!-- <button class="clock-btn">Clock</button>
+      <button class="timer-btn">Timer</button> -->
+    </div>
+  </div>
+  <audio id="alarmSound" src="Harmonize_-_Single_Again.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
