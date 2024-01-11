@@ -1,5 +1,8 @@
 let alarms = [];
 let alarmTimeouts = [];
+let clockButton = document.querySelector('.clock-btn');
+const timerButton = document.querySelector('.timer-btn');
+
 
 function setAlarm() {
   const alarmInput = document.getElementById('alarmTime');
@@ -34,29 +37,31 @@ function editAlarm(index) {
   const inputTime = document.createElement('input');
   inputTime.setAttribute('type', 'time');
   inputTime.setAttribute('id', `editTime${index}`);
+  inputTime.classList.add('input-time');
 
-  const amPmSelector = document.createElement('select');
-  amPmSelector.setAttribute('id', `amPmSelector${index}`);
-  const amOption = document.createElement('option');
-  amOption.value = 'AM';
-  amOption.text = 'AM';
-  const pmOption = document.createElement('option');
-  pmOption.value = 'PM';
-  pmOption.text = 'PM';
-  amPmSelector.appendChild(amOption);
-  amPmSelector.appendChild(pmOption);
+  // const amPmSelector = document.createElement('select');
+  // amPmSelector.setAttribute('id', `amPmSelector${index}`);
+  // const amOption = document.createElement('option');
+  // amOption.value = 'AM';
+  // amOption.text = 'AM';
+  // const pmOption = document.createElement('option');
+  // pmOption.value = 'PM';
+  // pmOption.text = 'PM';
+  // amPmSelector.appendChild(amOption);
+  // amPmSelector.appendChild(pmOption);
 
   const editButton = document.createElement('button');
   editButton.textContent = 'Save';
+  editButton.classList.add('save-btn');
   editButton.addEventListener('click', () => {
     const newTime = document.getElementById(`editTime${index}`).value;
-    const amPm = document.getElementById(`amPmSelector${index}`).value;
-    const editedTime = `${newTime} ${amPm}`;
-    updateAlarm(index, editedTime);
+    // const amPm = document.getElementById(`amPmSelector${index}`).value;
+    // const editedTime = `${newTime} ${amPm}`;
+    updateAlarm(index, newTime);
   });
 
   listItem.appendChild(inputTime);
-  listItem.appendChild(amPmSelector);
+  // listItem.appendChild(amPmSelector);
   listItem.appendChild(editButton);
 }
 
@@ -95,7 +100,13 @@ function updateAlarm(index, newTime) {
     alert('Please set an alarm time in the future.');
   }
 }
+clockButton.addEventListener('click', () => {
+  window.location.href = '../index.html'
+});
 
+timerButton.addEventListener('click', () => {
+  document.location.href = '../timer/index.html'
+})
 
 function removeAlarm(index) {
   alarms.splice(index, 1);
@@ -120,18 +131,21 @@ function displayAlarms() {
 
     const editButton = document.createElement('button');
     editButton.textContent = 'Edit';
+    editButton.classList.add('edit-btn');
     editButton.addEventListener('click', () => {
       editAlarm(index);
     });
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('delete-btn');
     deleteButton.addEventListener('click', () => {
       removeAlarm(index);
     });
 
     const stopButton = document.createElement('button');
     stopButton.textContent = 'Stop';
+    stopButton.classList.add('stop-btn');
     stopButton.addEventListener('click', () => {
         stopAlarm(index);
     });
