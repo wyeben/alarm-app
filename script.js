@@ -171,7 +171,6 @@ function loadAlarms() {
       if (timeToAlarm > 0) {
         const alarmTimeout = setTimeout(() => {
           startAlarm(index);
-
           stopSingleAlarm(index);
         }, timeToAlarm);
         alarmTimeouts.push(alarmTimeout);
